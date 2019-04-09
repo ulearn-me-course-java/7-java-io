@@ -16,13 +16,11 @@ public class Task01Main {
     }
 
     public static int checkSumOfStream(InputStream inputStream) throws IOException {
-        int c;
+        if(inputStream == null){throw  new IllegalArgumentException();}
+
+        int c = inputStream.read();
         int buff;
-        try {
-            c = inputStream.read();
-        } catch (NullPointerException e) {
-            throw new IllegalArgumentException();
-        }
+
         if (c == -1) {
             return 0;
         }
