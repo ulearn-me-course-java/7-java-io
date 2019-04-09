@@ -1,16 +1,9 @@
 package com.example.task02;
 
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
-
 import java.io.IOException;
 
 public class Task02Main {
     public static void main(String[] args) throws IOException {
-        // чтобы протестировать свое решение, вам нужно:
-        // - направить файл input.test в стандартный ввод программы (в настройках запуска программы в IDE или в консоли)
-        // - направить стандартный вывод программы в файл output.test
-        // - запустить программу
-        // - и сравнить получившийся файл output.test с expected.test
         int firstByte = 1;
         int secondByte;
 
@@ -21,7 +14,6 @@ public class Task02Main {
 
             if (firstByte != 13 && firstByte != -1) {
                 System.out.write(firstByte);
-                firstByte = 0;
                 continue;
             }
 
@@ -33,7 +25,6 @@ public class Task02Main {
                 }
                 if(secondByte == 13){
                     System.out.write(firstByte);
-                    firstByte = secondByte;
                     secondByte = 0;
                     continue;
                 }
