@@ -2,7 +2,6 @@ package com.example.task01;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.io.ByteArrayInputStream;
 
 public class Task01Main {
@@ -17,34 +16,21 @@ public class Task01Main {
     }
 
     public static int checkSumOfStream(InputStream inputStream) throws IOException {
-        int bufferSize;
-        int[] c;
-        ArrayList<Integer> buffer = new ArrayList<Integer>();
-
-        buffer.add(0);
-
+        int c;
+        int buff;
         try {
-            while (buffer.get(buffer.size() - 1) != -1) {
-                buffer.add(inputStream.read());
-            }
+            c = inputStream.read();
+        } catch (NullPointerException e) {
+            throw new IllegalArgumentException();
         }
-        catch(NullPointerException ex) {throw new IllegalArgumentException();}
-
-        bufferSize = buffer.size();
-
-        if (bufferSize == 2) { return 0; }
-
-        Integer[] b = new Integer[buffer.size() - 2];
-        for (int i = 0; i < bufferSize - 2; i++) {
-            b[i] = buffer.get(i + 1);
+        if (c == -1) {
+            return 0;
         }
 
-        c = new int[bufferSize - 2];
-        c[0] = b[0];
-        for (int i = 0; i < c.length - 1; i++) {
-            c[i + 1] = Integer.rotateLeft(c[i], 1) ^ b[i + 1].byteValue();
+        while ((buff = inputStream.read()) != -1) {
+            c = Integer.rotateLeft(c, 1) ^ buff;
         }
 
-        return c[c.length - 1];
+        return c;
     }
 }
