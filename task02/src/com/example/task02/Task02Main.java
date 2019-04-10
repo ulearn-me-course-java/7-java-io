@@ -1,13 +1,20 @@
 package com.example.task02;
 
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import static java.lang.System.in;
+import static java.lang.System.out;
 
 public class Task02Main {
     public static void main(String[] args) throws IOException {
-        // чтобы протестировать свое решение, вам нужно:
-        // - направить файл input.test в стандартный ввод программы (в настройках запуска программы в IDE или в консоли)
-        // - направить стандартный вывод программы в файл output.test
-        // - запустить программу
-        // - и сравнить получившийся файл output.test с expected.test
+        try(InputStreamReader inputStreamReader = new InputStreamReader(System.in)) {
+            Scanner s = new Scanner(inputStreamReader).useDelimiter("\\z");
+            String result = s.hasNext() ? s.next() : "";
+            out.write(result.replaceAll("\r\n", "\n").getBytes());
+        }
+        System.out.flush();
     }
 }
