@@ -4,10 +4,17 @@ import java.io.IOException;
 
 public class Task02Main {
     public static void main(String[] args) throws IOException {
-        // чтобы протестировать свое решение, вам нужно:
-        // - направить файл input.test в стандартный ввод программы (в настройках запуска программы в IDE или в консоли)
-        // - направить стандартный вывод программы в файл output.test
-        // - запустить программу
-        // - и сравнить получившийся файл output.test с expected.test
+        int curByte, nextByte;
+        while ((curByte = System.in.read()) != -1)
+            if (curByte == '\r')
+                do {
+                    if ((nextByte = System.in.read()) != '\n')
+                        System.out.print((char) curByte);
+                    if (nextByte != -1 && nextByte != '\r')
+                        System.out.print((char) nextByte);
+                    curByte = nextByte;
+                } while (curByte == '\r');
+            else System.out.print((char) curByte);
+        System.out.flush();
     }
 }
