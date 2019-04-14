@@ -2,6 +2,7 @@ package com.example.task04;
 
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.Locale;
 
 public class Task04Main {
     public static void main(String[] args) throws IOException {
@@ -20,6 +21,7 @@ public class Task04Main {
                 //ignore
             }
         }
-        System.out.println(String.format("%.6f", x));
+        String format=String.format(Locale.ENGLISH,"%.6f", x);
+        System.out.println(format);
     }
 }
