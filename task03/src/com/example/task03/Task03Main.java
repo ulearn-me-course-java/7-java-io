@@ -1,8 +1,11 @@
 package com.example.task03;
 
-import java.io.IOException;
-import java.io.InputStream;
+import com.github.javaparser.SimpleCharStream;
+
+import java.io.*;
 import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class Task03Main {
     public static void main(String[] args) throws IOException {
@@ -15,7 +18,9 @@ public class Task03Main {
     }
 
     public static String readAsString(InputStream inputStream, Charset charset) throws IOException {
-        // your implementation here
-        return "";
+        if (inputStream == null) throw new IllegalArgumentException();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, charset));
+        String line = reader.readLine();
+        return line;
     }
 }
