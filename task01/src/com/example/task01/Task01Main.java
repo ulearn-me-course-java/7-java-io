@@ -9,9 +9,9 @@ public class Task01Main {
         //здесь вы можете вручную протестировать ваше решение, вызывая реализуемый метод и смотря результат
         // например вот так:
 
-
+/*
         System.out.println(checkSumOfStream(new ByteArrayInputStream(new byte[]{0x33, 0x45, 0x01})));
-
+*/
 
     }
 
