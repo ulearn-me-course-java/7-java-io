@@ -21,7 +21,7 @@ public class Task04Main {
                 //ignore
             }
         }
-        String format=String.format(Locale.ENGLISH,"%.6f", x);
+        String format=String.format(Locale.US,"%.6f", x);
         System.out.println(format);
     }
 }
