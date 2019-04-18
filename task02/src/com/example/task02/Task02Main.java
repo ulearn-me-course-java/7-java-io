@@ -1,13 +1,35 @@
 package com.example.task02;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Task02Main {
     public static void main(String[] args) throws IOException {
-        // чтобы протестировать свое решение, вам нужно:
-        // - направить файл input.test в стандартный ввод программы (в настройках запуска программы в IDE или в консоли)
-        // - направить стандартный вывод программы в файл output.test
-        // - запустить программу
-        // - и сравнить получившийся файл output.test с expected.test
+        try {
+
+            int current = System.in.read();
+
+            while (current != -1) {
+                int next = System.in.read();
+
+                if (next == -1) {
+                    System.out.write(current);
+                    break;
+                }
+
+                if (current == '\r' && next == '\n') {
+                    System.out.write(next);
+                    next = System.in.read();
+                } else
+                    System.out.write(current);
+
+                current = next;
+            }
+        } catch (Exception ex) {
+            System.out.println("Exception : " + ex);
+        }
+
+        System.out.flush();
     }
 }
