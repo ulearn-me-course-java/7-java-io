@@ -9,21 +9,14 @@ public class Task01Main {
     }
 
     public static int checkSumOfStream(InputStream inputStream) throws IOException {
-        int checksum = 0;
-
-        if (inputStream != null) {
-            checksum = inputStream.read();
-
-            if (checksum == -1)
-                return 0;
-
-            while (inputStream.available() > 0) {
-                checksum = Integer.rotateLeft(checksum, 1) ^ inputStream.read();
-            }
-        } else {
+        if (inputStream != null)
             throw new IllegalArgumentException();
-        }
 
+        int checksum = inputStream.read();
+        if (checksum == -1)
+            return 0;
+        while (inputStream.available() > 0)
+            checksum = Integer.rotateLeft(checksum, 1) ^ inputStream.read();
         return checksum;
     }
 }
