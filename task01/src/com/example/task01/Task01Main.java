@@ -21,10 +21,9 @@ public class Task01Main {
         int checkSum = 0;
         int currByte = 0;
 
-        while (currByte > -1) {
+        while ((currByte = inputStream.read()) > -1)
             checkSum = Integer.rotateLeft(checkSum, 1) ^ currByte;
-            currByte = inputStream.read();
-        }
+
         return checkSum;
     }
 }
