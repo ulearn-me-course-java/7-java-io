@@ -12,6 +12,11 @@ public class Task01Main {
         int checksum = 0;
 
         if (inputStream != null) {
+            checksum = inputStream.read();
+
+            if (checksum == -1)
+                return 0;
+
             while (inputStream.available() > 0) {
                 checksum = Integer.rotateLeft(checksum, 1) ^ inputStream.read();
             }
