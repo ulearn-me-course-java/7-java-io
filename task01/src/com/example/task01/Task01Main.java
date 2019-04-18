@@ -15,7 +15,22 @@ public class Task01Main {
     }
 
     public static int checkSumOfStream(InputStream inputStream) throws IOException {
-        // your implementation here
-        return 0;
+        if (inputStream == null) {
+            throw new IllegalArgumentException();
+        }
+
+        int symbol;
+        int sum = 0;
+        while ((symbol = inputStream.read()) != -1) {
+            sum = Integer.rotateLeft(sum, 1) ^ symbol;
+        }
+        return sum;
     }
 }
+//Контрольная сумма пустого набора данных равна нулю.
+//Контрольная сумма непустого набора данных вычисляется по следующей рекуррентной формуле:
+//C\[n+1\]=rotateLeft(C\[n\]) xor b\[n+1\]
+// C\[n\] — контрольная сумма первых n байт данных
+// rotateLeft — циклический сдвиг бит числа на один бит влево
+// (чтобы не изобретать велосипед, используйте Integer.rotateLeft)
+// b\[n\] — n-ный байт данных.
