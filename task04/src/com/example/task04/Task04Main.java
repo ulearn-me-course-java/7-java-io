@@ -1,6 +1,8 @@
 package com.example.task04;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
+import java.util.Scanner;
 
 public class Task04Main {
     public static void main(String[] args) throws IOException {
@@ -9,6 +11,28 @@ public class Task04Main {
         // - запустить программу
         // - проверить, что получилось 351.731900
 
-        System.out.println("0.0");
+        sumInput();
+    }
+
+    private static void sumInput(){
+        Scanner scan = new Scanner(System.in);
+
+        double sum = 0;
+        while(scan.hasNext()){
+            String line = scan.nextLine();
+
+            String[] splitted = line.split(" ");
+
+            for(String word : splitted){
+                try{
+                    sum += Double.parseDouble(word);
+                }
+                catch (Exception ex) {
+                    continue;
+                }
+            }
+        }
+
+        System.out.println(new DecimalFormat("#0.000000").format(sum).replace(',','.'));
     }
 }
