@@ -13,12 +13,7 @@ public class Task01Main {
 
         if (inputStream != null) {
             while (inputStream.available() > 0) {
-                int pos = 0;
-                byte[] inputArray = new byte[inputStream.available() % 1024];
-                inputStream.read(inputArray);
-                while (pos < inputArray.length) {
-                    checksum = Integer.rotateLeft(checksum, 1) ^ inputArray[pos++];
-                }
+                checksum = Integer.rotateLeft(checksum, 1) ^ inputStream.read();
             }
         } else {
             throw new IllegalArgumentException();
