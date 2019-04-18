@@ -5,17 +5,25 @@ import java.io.InputStream;
 
 public class Task01Main {
     public static void main(String[] args) throws IOException {
-        //здесь вы можете вручную протестировать ваше решение, вызывая реализуемый метод и смотря результат
-        // например вот так:
-
-        /*
-        System.out.println(checkSumOfStream(new ByteArrayInputStream(new byte[]{0x33, 0x45, 0x01})));
-        */
 
     }
 
     public static int checkSumOfStream(InputStream inputStream) throws IOException {
-        // your implementation here
-        return 0;
+        int checksum = 0;
+
+        if (inputStream != null) {
+            while (inputStream.available() > 0) {
+                int pos = 0;
+                byte[] inputArray = new byte[inputStream.available() % 1024];
+                inputStream.read(inputArray);
+                while (pos < inputArray.length) {
+                    checksum = Integer.rotateLeft(checksum, 1) ^ inputArray[pos++];
+                }
+            }
+        } else {
+            throw new IllegalArgumentException();
+        }
+
+        return checksum;
     }
 }
