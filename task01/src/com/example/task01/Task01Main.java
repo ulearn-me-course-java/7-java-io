@@ -19,13 +19,9 @@ public class Task01Main {
             throw new IllegalArgumentException();
         }
         int buff, result = 0;
-        try {
-            while ((buff = inputStream.read()) != -1) {
-                result = Integer.rotateLeft(result, 1) ^ buff;
-            }
-            return result;
-        } catch (IOException e) {
-            throw new IOException();
+        while ((buff = inputStream.read()) != -1) {
+            result = Integer.rotateLeft(result, 1) ^ buff;
         }
+        return result;
     }
 }
