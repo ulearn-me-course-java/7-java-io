@@ -14,7 +14,7 @@ public class Task04Main {
         findDec();
     }
 
-    public static void findDec() throws IOException {
+    public static void findDec() {
         Scanner scanner = new Scanner(System.in);
         double sum = 0;
 
