@@ -17,20 +17,18 @@ public class Task03Main {
     }
 
     public static String readAsString(InputStream inputStream, Charset charset) throws IOException {
-        if (inputStream == null || charset == null)
+        if (inputStream == null || charset == null) {
             throw new IllegalArgumentException();
-        try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, charset));
-
-            String result = "";
-            String current;
-
-            while ((current = reader.readLine()) != null) {
-                result += current;
-            }
-            return result;
-        } catch (IOException ioe) {
-            throw new IOException();
         }
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, charset));
+
+        String result = "";
+        int current = 0;
+
+        while ((current = reader.read()) != -1) {
+            result += (char)current;
+        }
+        return result;
     }
 }
