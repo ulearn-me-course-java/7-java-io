@@ -13,22 +13,19 @@ public class Task02Main {
     }
 
     public static void strFromWinToUnix() throws IOException {
-        try {
-            int current = System.in.read();
-            while (current != -1) {
-                int next = System.in.read();
-                if (next == -1)
-                    System.out.write(current);
-                else if (current == 13 && next == 10) {
-                    System.out.write(next);
-                    next = System.in.read();
-                } else
-                    System.out.write(current);
-                current = next;
+        int current = System.in.read();
+        while (current != -1) {
+            int next = System.in.read();
+            if (next == -1) {
+                System.out.write(current);
+            } else if (current == 13 && next == 10) {
+                System.out.write(next);
+                next = System.in.read();
+            } else {
+                System.out.write(current);
             }
-            System.out.flush();
-        } catch (IOException ioe) {
-            throw new IOException();
+            current = next;
         }
+        System.out.flush();
     }
 }
