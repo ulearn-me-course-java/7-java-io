@@ -1,6 +1,8 @@
 package com.example.task04;
 
 import java.io.IOException;
+import java.util.Locale;
+import java.util.Scanner;
 
 public class Task04Main {
     public static void main(String[] args) throws IOException {
@@ -9,6 +11,21 @@ public class Task04Main {
         // - запустить программу
         // - проверить, что получилось 351.731900
 
-        System.out.println("0.0");
+        sumOfNumbersFromText();
+    }
+
+    public static void sumOfNumbersFromText() {
+        Scanner scanner = new Scanner(System.in);
+        double sum = 0;
+        while (scanner.hasNext()) {
+            String buffer = scanner.next();
+            try {
+                sum += Double.parseDouble(buffer);
+            } catch (Exception e) {
+                //ииключение NumberFormatException возникает в случае, когда парсер не нашел число
+                //никак не обрабатываем данное исключение, поскольку неверный формат числа мы выводить не должны
+            }
+        }
+        System.out.printf(Locale.ENGLISH, "%.6f", sum);
     }
 }
