@@ -1,6 +1,10 @@
 package com.example.task02;
 
 import java.io.IOException;
+import java.util.Scanner;
+
+import static java.lang.System.in;
+import static java.lang.System.out;
 
 public class Task02Main {
     public static void main(String[] args) throws IOException {
@@ -9,5 +13,16 @@ public class Task02Main {
         // - направить стандартный вывод программы в файл output.test
         // - запустить программу
         // - и сравнить получившийся файл output.test с expected.test
+        windowsToUnixEOL();
+    }
+
+    public static void windowsToUnixEOL() throws IOException {
+        try(Scanner sc = new Scanner(System.in).useDelimiter("\\z")) {
+            if (sc.hasNext()) {
+                out.write(sc.next().replaceAll("\r\n", "\n").getBytes());
+            }
+            sc.close();
+        }
+        System.out.flush();
     }
 }
