@@ -3,6 +3,8 @@ package com.example.task03;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
+import java.io.InputStreamReader;
+import java.io.BufferedReader;
 
 public class Task03Main {
     public static void main(String[] args) throws IOException {
@@ -16,6 +18,15 @@ public class Task03Main {
 
     public static String readAsString(InputStream inputStream, Charset charset) throws IOException {
         // your implementation here
-        return "";
+        if (inputStream == null || charset == null) {
+            throw new IllegalArgumentException();
+        }
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, charset));
+        String str = "";
+        int current = 0;
+        while ((current = reader.read()) != -1) {
+            str += (char) current;
+        }
+        return str;
     }
 }
