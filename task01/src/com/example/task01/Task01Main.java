@@ -23,9 +23,10 @@ public class Task01Main {
         // b[n] — n-ный байт данных.
         int sum = 0;
         if(inputStream == null) throw new IllegalArgumentException("Input Stream is not exist");
-        while(inputStream.available() >= 0) {
-            int dataByte = inputStream.read();
+        int dataByte = inputStream.read();
+        while(dataByte >= 0) {
             sum = Integer.rotateLeft(sum, 1) ^ dataByte;
+            dataByte = inputStream.read();
         }
         return sum;
     }
