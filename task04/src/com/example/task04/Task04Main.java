@@ -1,14 +1,32 @@
 package com.example.task04;
 
-import java.io.IOException;
+import java.util.Locale;
+import java.util.Scanner;
 
 public class Task04Main {
-    public static void main(String[] args) throws IOException {
-        // чтобы протестировать свое решение, вам нужно:
-        // - направить файл input.test в стандартный ввод программы (в настройках запуска программы в IDE или в консоли)
-        // - запустить программу
-        // - проверить, что получилось 351.731900
+    public static void main(String[] args) {
+        Sum();
+    }
 
-        System.out.println("0.0");
+    public static void Sum(){
+        Scanner scanner=new Scanner(System.in);
+        double sum=0.0;
+        while (scanner.hasNext()){
+            String str=scanner.next();
+            if(isNumber(str)){
+                sum+=Double.parseDouble(str);
+            }
+        }
+        System.out.printf(Locale.US,"%.6f",sum);
+        scanner.close();
+    }
+
+    public static boolean isNumber(String str) {
+        try {
+            Double.parseDouble(str);
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
     }
 }
