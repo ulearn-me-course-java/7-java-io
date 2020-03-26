@@ -13,15 +13,13 @@ public class Task01Main {
     }
 
     public static int checkSumOfStream(InputStream inputStream) throws IOException {
-        if (inputStream == null) {
-            throw  new IllegalArgumentException("Ti durak??????");
-        }
+        if(inputStream==null)
+            throw new IllegalArgumentException();
         int result = 0;
-        int n = inputStream.read();
-            while (n != -1) {
-                result = Integer.rotateLeft(result, 1) ^ n;
-                inputStream.read();
-            }
-            return result;
+        int num = inputStream.read();
+        while(num != -1) {
+            result = Integer.rotateLeft(result, 1) ^ num;
+            num = inputStream.read();
         }
+        return result;
 }
