@@ -18,7 +18,7 @@ public class Task01Main {
         if (inputStream == null) {
             throw  new IllegalArgumentException("Ti durak??????");
         }
-            while (n > -1) {
+            while (n != -1) {
                 result = Integer.rotateLeft(result, 1) ^ n;
                 inputStream.read();
             }
