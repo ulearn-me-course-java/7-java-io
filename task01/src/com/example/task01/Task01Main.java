@@ -16,7 +16,7 @@ public class Task01Main {
 
     public static int checkSumOfStream(InputStream inputStream) throws IOException {
         if (inputStream == null){
-            throw new IOException("array doesnt exist"); //ошибка ввода-вывода
+            throw new IllegalArgumentException("array doesnt exist"); //избежать передачи некорректных значений аргументов
         }
 
         int sum = 0;
