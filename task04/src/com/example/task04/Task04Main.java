@@ -1,10 +1,11 @@
 package com.example.task04;
 
+import java.io.IOException;
 import java.util.Locale;
 import java.util.Scanner;
 
 public class Task04Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
         scanner.useLocale(Locale.UK);
         double sum = 0;
@@ -16,6 +17,6 @@ public class Task04Main {
                 scanner.next();
         }
 
-        System.out.println(String.format(Locale.UK, "%.6f", sum));
+        System.out.format(Locale.UK, "%.6f", sum);
     }
 }
