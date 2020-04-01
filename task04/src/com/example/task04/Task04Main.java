@@ -20,6 +20,5 @@ public class Task04Main {
             }
         }
         System.out.printf(Locale.ENGLISH, "%.6f", sum);
-        System.out.println("0.0");
     }
 }
