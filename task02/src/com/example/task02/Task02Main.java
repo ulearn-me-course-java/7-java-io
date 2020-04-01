@@ -4,10 +4,17 @@ import java.io.IOException;
 
 public class Task02Main {
     public static void main(String[] args) throws IOException {
-        // чтобы протестировать свое решение, вам нужно:
-        // - направить файл input.test в стандартный ввод программы (в настройках запуска программы в IDE или в консоли)
-        // - направить стандартный вывод программы в файл output.test
-        // - запустить программу
-        // - и сравнить получившийся файл output.test с expected.test
+        byte[] buf = new byte[2];
+
+        if (System.in.read(buf, 0, 1) == -1)
+            return;
+
+        while (System.in.read(buf, 1, 1) > 0) {
+            if (!(buf[0] == 0x0d && buf[1] == 0x0a)) {
+                System.out.write(buf[0]);
+            }
+            buf[0] = buf[1];
+        }
+        System.out.write(buf[0]);
     }
 }
