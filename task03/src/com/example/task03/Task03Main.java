@@ -9,12 +9,19 @@ public class Task03Main {
     }
 
     public static String readAsString(InputStream inputStream, Charset charset) throws IOException {
-        if (inputStream == null) {
-            throw new IllegalArgumentException("Input stream was null");
+        if (inputStream == null || charset == null) {
+            throw new IllegalArgumentException("Null argument");
         }
+        InputStreamReader stream = new InputStreamReader(inputStream, charset);
+        StringBuilder sb = new StringBuilder();
+        char[] chars = new char[128];
 
-        byte[] bytes = new byte[inputStream.available()];
-        inputStream.read(bytes);
-        return new String(bytes, charset);
+        int count;
+        do {
+            count = stream.read(chars);
+            sb.append(chars, 0, count);
+        } while (count == chars.length);
+
+        return sb.toString();
     }
 }
