@@ -15,7 +15,13 @@ public class Task01Main {
     }
 
     public static int checkSumOfStream(InputStream inputStream) throws IOException {
-        // your implementation here
-        return 0;
+        int sum = 0;
+        int b = inputStream.read();
+        while(b != -1)
+        {
+            sum = Integer.rotateLeft(sum,1) ^ b;
+            b = inputStream.read();
+        }
+        return sum;
     }
 }
