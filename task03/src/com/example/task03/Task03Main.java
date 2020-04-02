@@ -15,7 +15,19 @@ public class Task03Main {
     }
 
     public static String readAsString(InputStream inputStream, Charset charset) throws IOException {
-        // your implementation here
-        return "";
+        if(inputStream == null)
+            throw new IllegalArgumentException();
+        InputStreamReader isr = new InputStreamReader(inputStream,charset);
+        String result = "";
+        int nowRead = isr.read();
+        char theChar = '0';
+        while(nowRead != -1)
+        {
+            theChar = (char) nowRead;
+            result += theChar;
+            nowRead = isr.read();
+        }
+
+        return result;
     }
 }
