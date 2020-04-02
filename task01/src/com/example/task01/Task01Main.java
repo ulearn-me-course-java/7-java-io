@@ -14,8 +14,19 @@ public class Task01Main {
 
     }
 
+    /*  Контрольная сумма непустого набора данных вычисляется по следующей рекуррентной
+        формуле: C[n+1]=rotateLeft(C[n]) xor b[n+1] , где C[n] — контрольная сумма
+        первых n байт данных, rotateLeft — циклический сдвиг бит числа на один бит
+        влево (чтобы не изобретать велосипед, используйте Integer.rotateLeft),
+        b[n] — n-ный байт данных.
+    */
+
     public static int checkSumOfStream(InputStream inputStream) throws IOException {
-        // your implementation here
-        return 0;
+
+        if(inputStream == null) throw new IllegalArgumentException("Inputstream does not exist");
+
+        int sum = 0, recd;
+        while ((recd = inputStream.read()) >= 0) sum = Integer.rotateLeft(sum,1) ^ recd;
+        return sum;
     }
 }
