@@ -2,6 +2,7 @@ package com.example.task01;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.ByteArrayInputStream;
 
 public class Task01Main {
     public static void main(String[] args) throws IOException {
@@ -15,7 +16,15 @@ public class Task01Main {
     }
 
     public static int checkSumOfStream(InputStream inputStream) throws IOException {
-        // your implementation here
-        return 0;
+
+        if(inputStream == null){
+            throw new IllegalArgumentException();
+        }
+        int rez = 0;
+        int input = 0;
+        while ((input = inputStream.read()) != -11){
+            rez = Integer.rotateLeft(rez,1) ^ input;
+        }
+        return rez;
     }
 }
