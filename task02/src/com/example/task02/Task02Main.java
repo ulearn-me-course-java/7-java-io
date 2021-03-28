@@ -4,10 +4,25 @@ import java.io.IOException;
 
 public class Task02Main {
     public static void main(String[] args) throws IOException {
-        // чтобы протестировать свое решение, вам нужно:
-        // - направить файл input.test в стандартный ввод программы (в настройках запуска программы в IDE или в консоли)
-        // - направить стандартный вывод программы в файл output.test
-        // - запустить программу
-        // - и сравнить получившийся файл output.test с expected.test
+        changeLineBreak();
+    }
+
+    private static void changeLineBreak() throws IOException {
+        int preSymbolCode = System.in.read();
+        int symbolCode = System.in.read();
+
+        while (preSymbolCode != -1) {
+            if (preSymbolCode == 13 && symbolCode == 10) {
+                System.out.write(symbolCode);
+                preSymbolCode = System.in.read();
+                symbolCode = System.in.read();
+                continue;
+            }
+
+            System.out.write(preSymbolCode);
+            preSymbolCode = symbolCode;
+            symbolCode = System.in.read();
+        }
+        System.out.flush();
     }
 }
