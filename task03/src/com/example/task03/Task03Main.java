@@ -3,6 +3,8 @@ package com.example.task03;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Task03Main {
     public static void main(String[] args) throws IOException {
@@ -15,7 +17,16 @@ public class Task03Main {
     }
 
     public static String readAsString(InputStream inputStream, Charset charset) throws IOException {
-        // your implementation here
-        return "";
+        if (inputStream == null || charset == null) throw new IllegalArgumentException();
+        List<Byte> bytesList = new ArrayList<>();
+        int input;
+        while ((input = inputStream.read()) >= 0) {
+            bytesList.add((byte) input);
+        }
+        byte[] bytes = new byte[bytesList.size()];
+        for (int i = 0; i < bytes.length; i++) {
+            bytes[i] = bytesList.get(i);
+        }
+        return new String(bytes, charset);
     }
 }
