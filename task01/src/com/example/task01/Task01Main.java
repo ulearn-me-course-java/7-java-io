@@ -15,7 +15,16 @@ public class Task01Main {
     }
 
     public static int checkSumOfStream(InputStream inputStream) throws IOException {
-        // your implementation here
-        return 0;
+
+        if(inputStream == null) throw new IllegalArgumentException();
+
+        int resultSum =0;
+        int flag = inputStream.read();
+        while(flag != -1){
+            // C[n+1]=rotateLeft(C[n]) xor b[n+1]
+            resultSum =  Integer.rotateLeft(resultSum,1) ^ (byte)flag;
+            flag = inputStream.read();
+        }
+        return resultSum;
     }
 }
