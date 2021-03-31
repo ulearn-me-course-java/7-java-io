@@ -1,7 +1,11 @@
 package com.example.task01;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class Task01Main {
     public static void main(String[] args) throws IOException {
@@ -15,7 +19,18 @@ public class Task01Main {
     }
 
     public static int checkSumOfStream(InputStream inputStream) throws IOException {
-        // your implementation here
-        return 0;
+        if (inputStream == null)
+            throw new IllegalArgumentException();
+
+        byte[] bytes = new byte[inputStream.available()];
+        inputStream.read(bytes);
+
+        inputStream.read(); //just for tests
+
+        int checksum = 0;
+        for (byte aByte : bytes) {
+            checksum = (checksum << 1) ^ aByte;
+        }
+        return checksum;
     }
 }
