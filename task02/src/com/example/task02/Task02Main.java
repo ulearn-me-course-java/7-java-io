@@ -4,10 +4,16 @@ import java.io.IOException;
 
 public class Task02Main {
     public static void main(String[] args) throws IOException {
-        // чтобы протестировать свое решение, вам нужно:
-        // - направить файл input.test в стандартный ввод программы (в настройках запуска программы в IDE или в консоли)
-        // - направить стандартный вывод программы в файл output.test
-        // - запустить программу
-        // - и сравнить получившийся файл output.test с expected.test
+        int prev = System.in.read();
+        while (prev > 0) {
+            int current = System.in.read();
+            if (current == 10 && prev == 13) {
+                prev = current;
+                continue;
+            }
+            System.out.write(prev);
+            prev = current;
+        }
+        System.out.flush();
     }
 }
