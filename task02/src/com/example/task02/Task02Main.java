@@ -5,7 +5,7 @@ import java.io.InputStream;
 import java.io.PrintStream;
 
 public class Task02Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException { //
         int val = System.in.read();
 
         while (val > -1) {
