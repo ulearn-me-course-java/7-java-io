@@ -1,5 +1,6 @@
 package com.example.task01;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -9,13 +10,22 @@ public class Task01Main {
         // например вот так:
 
         /*
-        System.out.println(checkSumOfStream(new ByteArrayInputStream(new byte[]{0x33, 0x45, 0x01})));
+
         */
+        System.out.println(checkSumOfStream(new ByteArrayInputStream(new byte[]{0x33, 0x45, 0x01})));
 
     }
 
     public static int checkSumOfStream(InputStream inputStream) throws IOException {
         // your implementation here
-        return 0;
+        if(inputStream == null)
+            throw new IllegalArgumentException();
+
+        int res = 0, val = 0;
+
+        while ((val = inputStream.read()) > -1)
+            res = Integer.rotateLeft(res, 1) ^ val;
+
+        return res;
     }
 }
