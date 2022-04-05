@@ -10,7 +10,7 @@ public class Task02Main {
         // - запустить программу
         // - и сравнить получившийся файл output.test с expected.test
 
-        int current = (char)System.in.read();
+        int current = System.in.read();
         int previous = 0;
 
         int t = '\r';
