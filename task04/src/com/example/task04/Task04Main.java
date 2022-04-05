@@ -10,7 +10,6 @@ public class Task04Main {
         try{
             System.setIn(new FileInputStream("task04\\src\\com\\example\\task04\\input.test"));
         } catch (IOException ignored) {
-
         }
         Scanner scanner = new Scanner(System.in).useLocale(Locale.ENGLISH);
         double result = 0;
