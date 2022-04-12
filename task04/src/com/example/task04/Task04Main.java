@@ -13,7 +13,7 @@ public class Task04Main {
         // - проверить, что получилось 351.731900
 
         try{
-            System.setIn(new FileInputStream("task04\\src\\com\\example\\task04\\input.test"));
+            System.setIn(new FileInputStream("task04/src/com/example/task04/input.test"));
         } catch (IOException ignored) {
         }
 
