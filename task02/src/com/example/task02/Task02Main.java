@@ -9,5 +9,14 @@ public class Task02Main {
         // - направить стандартный вывод программы в файл output.test
         // - запустить программу
         // - и сравнить получившийся файл output.test с expected.test
+        int previous = System.in.read();
+        while (previous != -1) {
+            int current = System.in.read();
+            if (previous != '\r' || current != '\n')
+                System.out.write(previous);
+            previous = current;
+        }
+
+        System.out.flush();
     }
 }
