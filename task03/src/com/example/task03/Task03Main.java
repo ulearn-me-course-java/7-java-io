@@ -14,8 +14,20 @@ public class Task03Main {
         */
     }
 
-    public static String readAsString(InputStream inputStream, Charset charset) throws IOException {
+    public static String readAsString(InputStream inputStream, Charset charset) throws IOException, IllegalArgumentException {
         // your implementation here
-        return "";
+       ByteArrayOutputStream out = new ByteArrayOutputStream();
+        byte[] buffer = new byte[4096];
+        int nRead;
+        if(inputStream != null)
+        {
+            while ((nRead = inputStream.read(buffer)) != -1) {
+                out.write(buffer, 0, nRead);
+            }
+        }
+        else{
+            throw new IllegalArgumentException();
+        }
+        return new String(out.toByteArray(), charset);
     }
 }
