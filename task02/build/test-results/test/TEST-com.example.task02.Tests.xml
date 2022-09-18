@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.task02.Tests" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-09-18T17:10:40" hostname="DESKTOP-SPSS5I2" time="0.036">
+  <properties/>
+  <testcase name="testExample" classname="com.example.task02.Tests" time="0.035"/>
+  <testcase name="testEmpty" classname="com.example.task02.Tests" time="0.0"/>
+  <testcase name="testArrays" classname="com.example.task02.Tests" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
