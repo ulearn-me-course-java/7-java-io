@@ -20,6 +20,5 @@ public class Task02Main {
             prev = current;
             current = is.read();
         }
-        System.out.flush();
     }
 }
