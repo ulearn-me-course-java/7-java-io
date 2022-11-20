@@ -1,9 +1,9 @@
 package com.example.task03;
-
+import java.io.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
-
+import java.util.ArrayList;
 public class Task03Main {
     public static void main(String[] args) throws IOException {
         //здесь вы можете вручную протестировать ваше решение, вызывая реализуемый метод и смотря результат
@@ -15,7 +15,7 @@ public class Task03Main {
     }
 
     public static String readAsString(InputStream inputStream, Charset charset) throws IOException {
-        // your implementation here
-        return "";
+        if (inputStream == null) throw new IllegalArgumentException();
+        return new BufferedReader(new InputStreamReader(inputStream, charset)).readLine();
     }
 }
