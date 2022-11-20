@@ -1,6 +1,8 @@
 package com.example.task02;
 
-import java.io.IOException;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class Task02Main {
     public static void main(String[] args) throws IOException {
@@ -9,5 +11,29 @@ public class Task02Main {
         // - направить стандартный вывод программы в файл output.test
         // - запустить программу
         // - и сравнить получившийся файл output.test с expected.test
+
+        InputStream inputStream = System.in;
+        OutputStream outputStream = System.out;
+        ConvertStream(inputStream, outputStream);
+
+    }
+    public static void ConvertStream(InputStream inputStream, OutputStream outputStream) throws IOException {
+
+
+        if (inputStream == null) {
+            throw new IllegalArgumentException();
+        }
+        int prevElem = inputStream.read();
+        int curElem = inputStream.read();
+        while(prevElem != -1){
+            if ((prevElem != 13 || curElem != 10)){
+                outputStream.write(prevElem);
+            }
+            prevElem = curElem;
+            curElem = inputStream.read();
+        }
+        System.out.flush();
+
+
     }
 }
