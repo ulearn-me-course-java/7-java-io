@@ -26,7 +26,7 @@ public class Task03Main {
 
         int value;
         while ((value = reader.read()) != -1) {
-            stringBuilder.append((char)value);
+            stringBuilder.append((char) value);
         }
 
         return stringBuilder.toString();

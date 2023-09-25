@@ -16,7 +16,7 @@ public class Task04Main {
         //writeSum(System.in);
 
         writeSum(Files.newInputStream(
-                Paths.get("F:/Work/JavaProjets/7-java-io/task04/src/com/example/task04/input.test")));
+                Paths.get("task04/src/com/example/task04/input.test")));
     }
 
     private static void writeSum(InputStream inputStream) {
