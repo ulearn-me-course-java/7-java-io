@@ -10,8 +10,8 @@ public class Task02Main {
         // - запустить программу
         // - и сравнить получившийся файл output.test с expected.test
 
-        InputStream inputStream = System.in;
-        OutputStream outputStream = System.out;
+        InputStream inputStream = new FileInputStream("C:\\Users\\Informant\\source\\repos\\7-java-io\\task02\\src\\com\\example\\task02\\input.test");
+        OutputStream outputStream = new FileOutputStream("output.test");
 
         windowsEndLineToUnixEndLine(inputStream,outputStream);
     }
@@ -26,6 +26,6 @@ public class Task02Main {
             }
             outputStream.write(read[readLength-1]);
         }
-        System.out.flush();
+        outputStream.flush();
     }
 }
