@@ -10,21 +10,21 @@ public class Task02Main {
         // - запустить программу
         // - и сравнить получившийся файл output.test с expected.test
 
-        InputStream inputStream = new FileInputStream("C:\\Users\\Informant\\source\\repos\\7-java-io\\task02\\src\\com\\example\\task02\\input.test");
+        InputStream inputStream = new FileInputStream("task02/src/com/example/task02/input.test");
         OutputStream outputStream = new FileOutputStream("output.test");
 
         windowsEndLineToUnixEndLine(inputStream,outputStream);
     }
     public static void windowsEndLineToUnixEndLine(InputStream inputStream,OutputStream outputStream) throws IOException {
-        int readLength = 0;
-        byte[] read = new byte[1024];
-        while ((readLength = inputStream.read(read))>0){
-            for (int i=0; i<readLength-1;i++){
-                if (!(read[i] == 13 && read[i+1] == 10)){
-                    outputStream.write(read[i]);
+        int readArrayLength = 0;
+        byte[] readArray = new byte[1024];
+        while ((readArrayLength = inputStream.read(readArray))>0){
+            for (int i=0; i<readArrayLength-1;i++){
+                if (!(readArray[i] == 13 && readArray[i+1] == 10)){
+                    outputStream.write(readArray[i]);
                 }
             }
-            outputStream.write(read[readLength-1]);
+            outputStream.write(readArray[readArrayLength-1]);
         }
         outputStream.flush();
     }
