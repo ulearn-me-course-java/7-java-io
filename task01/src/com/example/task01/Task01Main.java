@@ -22,7 +22,7 @@ public class Task01Main {
         int num = inputStream.read();
         int sum = 0;
 
-        while(num > -1){
+        while(num > -1) {
             sum = Integer.rotateLeft(sum, 1) ^ num;
             num = inputStream.read();
         }
