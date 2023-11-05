@@ -18,6 +18,7 @@ public class Task02Main {
             previous = current;
             current = inputStream.read();
         }
+        System.out.flush();
 
     }
 }

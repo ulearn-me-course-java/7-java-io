@@ -16,14 +16,14 @@ public class Task03Main {
             throw new IllegalArgumentException();
         }
 
-        ByteArrayOutputStream res = new ByteArrayOutputStream();
-        byte[] buffer = new byte[1024];
-        int l;
+        InputStreamReader reader = new InputStreamReader(inputStream, charset);
+        StringBuilder res = new StringBuilder();
+        char[] buffer = new char[inputStream.available()];
+        int symbolsNum;
+        symbolsNum = reader.read(buffer);
+        res.append(new String(buffer, 0, symbolsNum));
 
-        while ((l = inputStream.read(buffer)) > -1) {
-            res.write(buffer, 0, l);
-        }
 
-        return res.toString(charset.toString());
+        return res.toString();
     }
 }
