@@ -1,7 +1,12 @@
 package com.example.task03;
 
+
+import org.assertj.core.internal.ByteArrays;
+
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 
 public class Task03Main {
@@ -15,7 +20,12 @@ public class Task03Main {
     }
 
     public static String readAsString(InputStream inputStream, Charset charset) throws IOException {
-        // your implementation here
-        return "";
+        if(inputStream == null){
+            throw new IllegalArgumentException();
+        }
+
+        byte[] bytes = new byte[inputStream.available()];
+        inputStream.read(bytes);
+        return new String(bytes, charset);
     }
 }
