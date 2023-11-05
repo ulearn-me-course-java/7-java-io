@@ -5,11 +5,11 @@ import java.io.*;
 
 public class Task02Main {
     public static void main(String[] args) throws IOException {
-        //InputStream inputStream = new FileInputStream("task02/src/com/example/task02/input.test");
-        //OutputStream outputStream = new FileOutputStream("task02/src/com/example/task02/output.test");
+        InputStream inputStream = new FileInputStream("task02/src/com/example/task02/input.test");
+        OutputStream outputStream = new FileOutputStream("task02/src/com/example/task02/output.test");
 
-        InputStream inputStream = System.in;
-        OutputStream outputStream = System.out;
+        //InputStream inputStream = System.in;
+        //OutputStream outputStream = System.out;
         int previous = inputStream.read();
         int current = inputStream.read();
         while (previous > -1) {
