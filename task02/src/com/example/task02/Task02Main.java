@@ -11,7 +11,11 @@ public class Task02Main {
         // - и сравнить получившийся файл output.test с expected.test
 
         InputStream inputStream = new FileInputStream("task02/src/com/example/task02/input.test");
-        OutputStream outputStream = new FileOutputStream("output.test");
+        //System.setIn(inputStream);
+        //OutputStream outputStream = new FileOutputStream("output.test");
+
+        //InputStream inputStream = System.in;
+        OutputStream outputStream = System.out;
 
         windowsEndLineToUnixEndLine(inputStream,outputStream);
     }

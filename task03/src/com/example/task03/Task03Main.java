@@ -25,6 +25,7 @@ public class Task03Main {
         if (inputStream == null || charset == null){
             throw new IllegalArgumentException();
         }
+
         InputStreamReader inputStreamReader= new InputStreamReader(inputStream, charset);
         int readArrayLength = 0;
         char[] readArray = new char[1024];
