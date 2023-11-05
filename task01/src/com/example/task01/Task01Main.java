@@ -17,12 +17,12 @@ public class Task01Main {
     }
 
     public static int checkSumOfStream(InputStream inputStream) throws IOException {
-        if(inputStream == null) throw new IllegalArgumentException();
+        if (inputStream == null) throw new IllegalArgumentException();
         ArrayList<Integer> list = new ArrayList<>();
         int num = inputStream.read();
         int sum = 0;
 
-        while(num > -1) {
+        while (num > -1) {
             sum = Integer.rotateLeft(sum, 1) ^ num;
             num = inputStream.read();
         }

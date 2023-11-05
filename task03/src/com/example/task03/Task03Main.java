@@ -23,7 +23,7 @@ public class Task03Main {
     }
 
     public static String readAsString(InputStream inputStream, Charset charset) throws IOException {
-        if(inputStream == null || charset == null) throw new IllegalArgumentException();
+        if (inputStream == null || charset == null) throw new IllegalArgumentException();
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream, charset);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         return bufferedReader.readLine();

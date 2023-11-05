@@ -8,8 +8,8 @@ public class Task02Main {
         InputStream inputStream = System.in;
         int prev = inputStream.read();
         int current = inputStream.read();
-        while(prev != -1){
-            if(current != 10 || prev != 13){
+        while (prev != -1) {
+            if (current != 10 || prev != 13) {
                 System.out.write(prev);
             }
             prev = current;
