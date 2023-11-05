@@ -11,6 +11,7 @@ public class Task01Main {
 
     }
 
+
     public static int checkSumOfStream(InputStream inputStream) throws IOException {
         if(inputStream == null){
             throw new IllegalArgumentException("Null");

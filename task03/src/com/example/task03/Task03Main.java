@@ -19,7 +19,9 @@ public class Task03Main {
         if(inputStream == null || charset == null){
             throw new IllegalArgumentException();
         }
+
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, charset));
+
         return bufferedReader.readLine();
     }
 }

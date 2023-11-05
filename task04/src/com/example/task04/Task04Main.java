@@ -15,8 +15,10 @@ public class Task04Main {
         // - запустить программу
         // - проверить, что получилось 351.731900
         //InputStream inputStream = Files.newInputStream(Paths.get("task04/src/com/example/task04/input.test"));
+
         Scanner scanner = new Scanner(new InputStreamReader(System.in)).useLocale(Locale.US);
         double sum = 0.0d;
+
         while (scanner.hasNext()){
             if(scanner.hasNextDouble()){
                 sum += scanner.nextDouble();
@@ -25,6 +27,7 @@ public class Task04Main {
                 scanner.next();
             }
         }
+
         System.out.printf(Locale.US,"%6f", sum);
     }
 }
