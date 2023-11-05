@@ -20,6 +20,8 @@ public class Task02Main {
 
         InputStream inputStream = System.in;
         OutputStream outputStream = System.out;
+
+
         int first = inputStream.read();
         int second = inputStream.read();
         while (first  > 0 ){
