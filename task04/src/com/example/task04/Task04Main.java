@@ -1,6 +1,9 @@
 package com.example.task04;
 
 import java.io.IOException;
+import java.io.File;
+import java.util.Scanner;
+import java.util.Locale;
 
 public class Task04Main {
     public static void main(String[] args) throws IOException {
@@ -8,7 +11,11 @@ public class Task04Main {
         // - направить файл input.test в стандартный ввод программы (в настройках запуска программы в IDE или в консоли)
         // - запустить программу
         // - проверить, что получилось 351.731900
-
-        System.out.println("0.0");
+        Scanner scanner = new Scanner(System.in).useLocale(Locale.US);
+        double sum = 0.;
+        while (scanner.hasNextDouble()) {
+            sum += scanner.nextDouble();
+        }
+        System.out.printf(String.format(Locale.US,"%.6f", sum));
     }
 }
