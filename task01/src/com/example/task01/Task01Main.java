@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class Task01Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args){
         //здесь вы можете вручную протестировать ваше решение, вызывая реализуемый метод и смотря результат
         // например вот так:
 
@@ -15,7 +15,14 @@ public class Task01Main {
     }
 
     public static int checkSumOfStream(InputStream inputStream) throws IOException {
-        // your implementation here
-        return 0;
+        if(inputStream == null)
+            throw new IllegalArgumentException();
+
+        int C = 0;
+        int b;
+        while((b = inputStream.read()) != -1){
+            C = Integer.rotateLeft(C, 1) ^ b;
+        }
+        return C;
     }
 }
