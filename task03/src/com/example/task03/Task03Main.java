@@ -3,6 +3,8 @@ package com.example.task03;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
+import java.io.InputStreamReader;
+import java.io.BufferedReader;
 
 public class Task03Main {
     public static void main(String[] args) throws IOException {
@@ -14,8 +16,24 @@ public class Task03Main {
         */
     }
 
-    public static String readAsString(InputStream inputStream, Charset charset) throws IOException {
+    public static String readAsString(InputStream inputStream, Charset charset)
+    {
         // your implementation here
-        return "";
+        if(inputStream == null || charset == null)
+            throw new IllegalArgumentException();
+
+        StringBuilder encodedString = new StringBuilder();
+
+        try(BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, charset))){
+            String line;
+
+            while((line = reader.readLine()) != null){
+                encodedString.append(line);
+            }
+        } catch (IOException ex){
+            ex.printStackTrace();
+        }
+
+        return encodedString.toString();
     }
 }
