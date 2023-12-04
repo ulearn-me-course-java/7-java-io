@@ -1,8 +1,6 @@
 package com.example.task04;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.PrintStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Locale;
@@ -24,7 +22,7 @@ public class Task04Main {
                 scanner.next();
             }
         }
-        System.out.printf(Locale.ENGLISH, "%,6f%n", result);
+        System.out.printf("%,6f%n", result);
 
     }
 }
