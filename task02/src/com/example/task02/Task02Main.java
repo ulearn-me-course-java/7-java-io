@@ -9,5 +9,18 @@ public class Task02Main {
         // - направить стандартный вывод программы в файл output.test
         // - запустить программу
         // - и сравнить получившийся файл output.test с expected.test
+
+        byte[] temp = new byte[] {-1, -1};
+
+        while (System.in.read(temp, 1, 1) != -1) {
+            if(temp[0] != -1 && !(temp[0] == 13 && temp[1] == 10)){
+                System.out.write(temp[0]);
+            }
+            temp[0] = temp[1];
+        }
+        if(temp[0] != -1){
+            System.out.write(temp[0]);
+        }
+
     }
 }
