@@ -1,13 +1,22 @@
 package com.example.task02;
 
-import java.io.IOException;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 
 public class Task02Main {
     public static void main(String[] args) throws IOException {
-        // чтобы протестировать свое решение, вам нужно:
-        // - направить файл input.test в стандартный ввод программы (в настройках запуска программы в IDE или в консоли)
-        // - направить стандартный вывод программы в файл output.test
-        // - запустить программу
-        // - и сравнить получившийся файл output.test с expected.test
+        InputStream inputStream = Files.newInputStream(Paths.get("task02/src/com/example/task02/input.test"));
+        OutputStream outputStream = Files.newOutputStream(Paths.get("task02/src/com/example/task02/output.test"));
+        int previousByte = inputStream.read();
+        while (previousByte != -1) {
+            int currentByte = inputStream.read();
+            if (previousByte != 13 || currentByte != 10) {
+                outputStream.write(previousByte);
+            }
+            previousByte = currentByte;
+        }
+        outputStream.flush();
     }
 }

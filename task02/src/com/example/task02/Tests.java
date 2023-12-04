@@ -7,6 +7,7 @@ import java.io.*;
 import java.util.Arrays;
 
 public class Tests {
+
     private void check(byte[] input, byte[] output) throws IOException {
         InputStream sin = System.in;
         PrintStream sout = System.out;
