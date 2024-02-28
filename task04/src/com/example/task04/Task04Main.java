@@ -1,5 +1,6 @@
 package com.example.task04;
-
+import java.io.InputStream;
+import java.util.Scanner;
 import java.io.IOException;
 
 public class Task04Main {
@@ -9,6 +10,18 @@ public class Task04Main {
         // - запустить программу
         // - проверить, что получилось 351.731900
 
-        System.out.println("0.0");
+        InputStream inputStream = System.in;
+        String value = Integer.toString(inputStream.read());
+        double sum = 0;
+        double d;
+        while (value != "-1"){
+            try {
+                d = Double.parseDouble(value);
+            } catch (NumberFormatException e) {
+                d = 0.0;
+            }
+            sum += d;
+            value = Integer.toString(inputStream.read());
+        }
     }
 }
